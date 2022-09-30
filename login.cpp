@@ -20,13 +20,6 @@ int main() {
         cin >> uName;
         cout <<"Select a Password: ";
         cin >> pass;
-
-        ofstream file;
-        file("data\\" +uName+ ".txt");
-        file << uName << endl << pass;
-        file.close
-
-        main();
     }
     else if (choice == 2){
         bool status = loggedIn();

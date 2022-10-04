@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 using namespace std;
 
 bool loggedIn();
-
 int main() {
     int choice;
 
@@ -12,7 +12,6 @@ int main() {
     cout << "2: Login\n";
     cout << "Type in 1 or 2: ";
     cin >> choice;
-
     if (choice == 1){
         string uName, pass;
 
@@ -20,9 +19,17 @@ int main() {
         cin >> uName;
         cout <<"Select a Password: ";
         cin >> pass;
+
+        ofstream file;
+        file("data\\" +uName+ ".txt");
+        file << uName << endl << pass;
+        file.close();
+
+        main();
     }
     else if (choice == 2){
         bool status = loggedIn();
+
         if (!status){
             cout << "Incorrect Login, Try Again!";
             system("Pause");
@@ -32,7 +39,8 @@ int main() {
             cout << "You're Logged In!\n";
             system("Pause");
             return 1;
-        } 
+        }
+
     }
 
 }
